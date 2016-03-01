@@ -23,39 +23,39 @@ import com.malsolo.springframework.data.jpa.sample.repository.Currency;
 @EnableJpaRepositories(basePackageClasses = Currency.class)
 public class ApplicationConfiguration {
 
-	@Bean
-	public EmbeddedDatabase dataSource() {
-		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2);
-		EmbeddedDatabase database = builder.setName("testdb").build();
-		return database;
-	}
+    @Bean
+    public EmbeddedDatabase dataSource() {
+        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2);
+        EmbeddedDatabase database = builder.setName("testdb").build();
+        return database;
+    }
 
-	@Bean
-	public JpaVendorAdapter jpaVendorAdapter() {
-		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-		adapter.setDatabase(H2);
-		adapter.setShowSql(true);
-		adapter.setGenerateDdl(true);
-		return adapter;
-	}
+    @Bean
+    public JpaVendorAdapter jpaVendorAdapter() {
+        HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
+        adapter.setDatabase(H2);
+        adapter.setShowSql(true);
+        adapter.setGenerateDdl(true);
+        return adapter;
+    }
 
-	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-		LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
-		emfb.setDataSource(dataSource());
-		emfb.setJpaVendorAdapter(jpaVendorAdapter());
-		emfb.setPackagesToScan(Currency.class.getPackage().getName());
-		return emfb;
-	}
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
+        emfb.setDataSource(dataSource());
+        emfb.setJpaVendorAdapter(jpaVendorAdapter());
+        emfb.setPackagesToScan(Currency.class.getPackage().getName());
+        return emfb;
+    }
 
-	@Bean
-	public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
-		return new JpaTransactionManager(entityManagerFactory().getObject());
-	}
-	
-	@Bean
-	public JdbcTemplate jdbcTemplate() {
-		return new JdbcTemplate(dataSource());
-	}
+    @Bean
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+        return new JpaTransactionManager(entityManagerFactory().getObject());
+    }
+
+    @Bean
+    public JdbcTemplate jdbcTemplate() {
+        return new JdbcTemplate(dataSource());
+    }
 
 }

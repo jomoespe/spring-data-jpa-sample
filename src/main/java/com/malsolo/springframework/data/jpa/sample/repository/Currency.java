@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Currency {
-	
+
     @Id
     @Column(name = "CODE", nullable = false)
     @Size(max = 3)
@@ -34,5 +34,5 @@ public class Currency {
 
     @Column(name = "NAME")
     private String name;
-	
+
 }

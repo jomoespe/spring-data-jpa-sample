@@ -15,24 +15,19 @@ import com.malsolo.springframework.data.jpa.sample.ApplicationConfiguration;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ApplicationConfiguration.class)
 public class CurrencyRepositoryTest {
-	
-	@Autowired
-	CurrencyRepository currencyRepository;
 
-	@Autowired
-	JdbcTemplate jdbcTemplate;
+    @Autowired CurrencyRepository currencyRepository;
+    @Autowired JdbcTemplate       jdbcTemplate;
 
-	@Test
-	public void testMarkerMethod() {
-	}
+    @Test
+    public void testMarkerMethod() {
+    }
 
-	@Test
-	public void testSave() {
-		
-		this.currencyRepository.save(new Currency("EUR", 978, 2, "Euro"));
-		
-		this.currencyRepository.flush();
-		
-		assertEquals(1, JdbcTestUtils.countRowsInTable(jdbcTemplate, "currency"));
-	}
+    @Test
+    public void testSave() {
+        this.currencyRepository.save(new Currency("EUR", 978, 2, "Euro"));
+        this.currencyRepository.flush();
+
+        assertEquals(1, JdbcTestUtils.countRowsInTable(jdbcTemplate, "currency"));
+    }
 }

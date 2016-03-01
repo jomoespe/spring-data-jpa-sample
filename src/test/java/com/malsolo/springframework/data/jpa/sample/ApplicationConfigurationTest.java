@@ -9,8 +9,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = ApplicationConfiguration.class)
 public class ApplicationConfigurationTest {
 
-	@Test
-	public void testMarkerMethod() {
-	}
+    @Test
+    public void testMarkerMethod() {
+    }
 
 }
