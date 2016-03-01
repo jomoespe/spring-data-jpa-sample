@@ -14,7 +14,7 @@ import com.malsolo.springframework.data.jpa.sample.ApplicationConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ApplicationConfiguration.class)
-public class CurrencyRepositoryTest {
+public class CurrencyRepositoryIT {
 
     @Autowired CurrencyRepository currencyRepository;
     @Autowired JdbcTemplate       jdbcTemplate;
