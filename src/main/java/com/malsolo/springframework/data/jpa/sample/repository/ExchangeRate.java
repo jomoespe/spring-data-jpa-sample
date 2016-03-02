@@ -18,7 +18,7 @@ public class ExchangeRate implements Serializable {
     private String source;
     @Id @Column(name = "TARGET", nullable = false) @NotNull @Size(max=3) 
     private String target;
-    @Id @Column(name = "REQUEST_TIMESTAMP", nullable = false) @NotNull @Size(max=10)
+    @Id @Column(name = "REQUEST_TIMESTAMP", nullable = false) @NotNull
     private Long requestTimestamp;
     @Column(name = "RATE", nullable = false)
     private Double rate;

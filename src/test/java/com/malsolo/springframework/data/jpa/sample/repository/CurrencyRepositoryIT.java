@@ -2,19 +2,19 @@ package com.malsolo.springframework.data.jpa.sample.repository;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.jdbc.JdbcTestUtils;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import com.malsolo.springframework.data.jpa.sample.ApplicationConfiguration;
-import java.util.List;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.springframework.data.domain.Sort;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ApplicationConfiguration.class)

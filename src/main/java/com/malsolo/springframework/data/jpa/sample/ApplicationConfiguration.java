@@ -21,7 +21,7 @@ import com.malsolo.springframework.data.jpa.sample.repository.Currency;
 import com.malsolo.springframework.data.jpa.sample.repository.ExchangeRate;
 
 @Configuration
-@EnableJpaRepositories(basePackageClasses = Currency.class)
+@EnableJpaRepositories(basePackageClasses = {Currency.class, ExchangeRate.class})
 public class ApplicationConfiguration {
 
     @Bean
