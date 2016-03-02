@@ -18,6 +18,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.malsolo.springframework.data.jpa.sample.repository.Currency;
+import com.malsolo.springframework.data.jpa.sample.repository.ExchangeRate;
 
 @Configuration
 @EnableJpaRepositories(basePackageClasses = Currency.class)
@@ -44,7 +45,7 @@ public class ApplicationConfiguration {
         LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
         emfb.setDataSource(dataSource());
         emfb.setJpaVendorAdapter(jpaVendorAdapter());
-        emfb.setPackagesToScan(Currency.class.getPackage().getName());
+        emfb.setPackagesToScan(ExchangeRate.class.getPackage().getName());
         return emfb;
     }
 
